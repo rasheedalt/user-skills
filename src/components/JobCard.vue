@@ -1,22 +1,35 @@
 <template>
 
-    <div class="card" style="width: 18rem;">
+    <div class="card" style="height: 200px;">
       <div class="card-body">
-        <h5 class="card-title">{{ job.objective }}</h5>
-        <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-        <p class="card-text">{{ job.tagline }}</p>
-        <!-- <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a> -->
+        <router-link :to="{ name: 'job', params: { id: job.id }}" class="title"> <h5 class="card-title">{{ job.objective }}</h5> </router-link>
+        <p class="card-text">{{ getDescription }}</p>
+
       </div>
     </div>
 
 </template>
 
 <script>
+
+import { getFewDescription } from '../helpers/utils'
+
 export default {
   name: 'HelloWorld',
   props: {
     job: Object
+  },
+  computed:{
+    getDescription: function(){
+      return this.job.tagline ? getFewDescription(this.job.tagline) : ''
+    }
   }
 }
 </script>
+
+<style scoped>
+.title{
+  text-decoration: none;
+  color: black;
+}
+</style>
