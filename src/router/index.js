@@ -6,13 +6,10 @@ Vue.use(VueRouter)
 
 const router =  new VueRouter({
     mode: 'history',
-    routes: [
-        routes
-    ],
-    base: process.env.VUE_APP_URL ? process.env.VUE_APP_URL : '/'
+    routes
 })
 
 
-router.addRoute({ path: "*", name: 'NotFound', component: NotFound })
+// router.addRoute({ path: "*", name: 'NotFound', component: NotFound })
 
 export default router
