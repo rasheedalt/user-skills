@@ -1,19 +1,27 @@
 module.exports = {
     devServer: {
-        proxy: 'https://search.torre.co'
-        // {
-        //     '/user-search': {
-        //         target: 'https://bio.torre.co',
-        //         pathRewrite: {'^/user-search' : ''}
-        //       },
-        //       '/jobs': {
-        //         target: 'https://torre.co',
-        //         pathRewrite: {'^/search' : ''}
-        //       },
-        //       '/search': {
-        //         target: 'https://search.torre.co',
-        //         pathRewrite: {'^/search' : ''}
-        //      }
-        // }
+        proxy: {
+            '/user': {
+                target: 'http://bio.torre.co/api',
+                ws: true,
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/user': ''
+                }
+            },
+            '/jobs': {
+                target: 'https://search.torre.co',
+                pathRewrite: {
+                    '^/jobs': ''
+                }
+            },
+            '/single': {
+                target: 'https://torre.co/api/suite',
+                pathRewrite: {
+                    '^/single': ''
+                }
+            }
+
+        }
     }
 }

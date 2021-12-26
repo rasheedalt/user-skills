@@ -2,7 +2,7 @@
 
     <div class="card" style="height: 200px;">
       <div class="card-body">
-        <router-link :to="{ name: 'job', params: { id: job.id }}" class="title"> <h5 class="card-title">{{ job.objective }}</h5> </router-link>
+        <router-link :to="{ name: 'job', params: { id: job.id } }" class="title"> <h5 class="card-title">{{ job.objective }}</h5> </router-link>
         <p class="card-text">{{ getDescription }}</p>
 
       </div>
