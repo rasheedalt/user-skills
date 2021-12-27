@@ -9,9 +9,11 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 Vue.config.productionTip = false
 
-axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+axios.defaults.headers.common['Access-Control-Allow-Origin'] = '/';
+axios.defaults.headers.common['Access-Control-Allow-Headers'] = "Access-Control-Allow-Methods, Access-Control-Allow-Origin, Origin, Accept, Content-Type";
+axios.defaults.headers.common['Access-Control-Allow-Methods'] = "POST, GET, PUT, OPTIONS, DELETE";
+
 Vue.use(VueAxios, axios);
-axios.defaults.baseURL = '';
 
 
 new Vue({

@@ -1,6 +1,6 @@
-import Home from '../pages/Home';
-import JobDetail from '../pages/JobDetail';
-import UserDetails from '../pages/UserDetails';
+import Home from '../pages/home/Home.vue';
+import Job from '../pages/job/Job.vue';
+import User from '../pages/user/User.vue';
 
 const routes = [
     {
@@ -11,12 +11,12 @@ const routes = [
     {
         name: 'job',
         path: '/job/:id',
-        component: JobDetail
+        component: Job
     },
     {
         name: 'user',
         path: '/user/:username',
-        component: UserDetails
+        component: User
     },
 
 ];

@@ -1,14 +1,6 @@
 module.exports = {
     devServer: {
         proxy: {
-            '/user': {
-                target: 'http://bio.torre.co/api',
-                ws: true,
-                changeOrigin: true,
-                pathRewrite: {
-                    '^/user': ''
-                }
-            },
             '/jobs': {
                 target: 'https://search.torre.co',
                 pathRewrite: {
@@ -20,7 +12,15 @@ module.exports = {
                 pathRewrite: {
                     '^/single': ''
                 }
-            }
+            },
+            '/user': {
+                target: 'http://torre.bio/api',
+                // ws: true,
+                changeOrigin: false,
+                pathRewrite: {
+                    '^/user': ''
+                }
+            },
 
         }
     }
