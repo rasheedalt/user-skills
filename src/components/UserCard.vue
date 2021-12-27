@@ -8,6 +8,7 @@
               </div>
               <div class="col-md-8">
                   <router-link :to="{ name: 'user', params: { username: user.username } }" class="title"> <h5>{{ user.name }}</h5> </router-link>
+                  <p>{{ user.professionalHeadline }}</p>
               </div>
           </div>
 

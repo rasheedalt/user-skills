@@ -18,14 +18,7 @@
 
       <div class="col-md-7">
         <h4 class="mb-2 text-center">Skills</h4>
-        <ul class="list-group">
-            <li class="list-group-item" v-for="skill in skills" :key="skill.id">
-              <div class="row">
-                <div class="col-md-6 font-weight-bold">{{skill.name}}</div>
-                <div class="col-md-6"><span class="text-right">({{ skill.proficiency }})</span> <router-link to="/" class="text-right">view users with related skills</router-link></div>
-              </div>
-            </li>
-        </ul>
+        <SkillList :skills="skills" />
 
       </div>
     </div>

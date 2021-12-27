@@ -1,4 +1,7 @@
+import UserCard from '../../components/UserCard.vue';
+
 export default {
+    components: {UserCard},
     data(){
         return {
             skill: '',
@@ -7,15 +10,15 @@ export default {
     },
     created(){
         this.skill = this.$route.params.skill
-
         this.getPeopleWithSimilarSkills(this.skill)
     },
     methods:{
         getPeopleWithSimilarSkills(skill){
-            this.axios.post(`/jobs/people/_search?size=10`, {and: [{'skill/role': {text: skill}} ]})
+            this.axios.post(`/jobs/people/_search?`, {'and': [{"skill/role": {text: skill, proficiency: 'proficient'}} ]})
             .then( (response) => {
               console.log(response.data)
-              this.users = response.data.result
+              this.users = response.data.results
+              console.log(this.users)
           });
         }
     }
