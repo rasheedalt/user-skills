@@ -19,7 +19,7 @@ export default {
       if(this.searchText == ''){
         this.users = [];
       }else{
-        this.axios.post(`/jobs/people/_search?size=10`, {name: {term: text}})
+        this.axios.post(`https://search.torre.co/people/_search?size=10`, {name: {term: text}})
           .then( (response) => {
               this.users = response.data.results;
           });

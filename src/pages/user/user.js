@@ -15,7 +15,7 @@ export default {
     created(){
         this.username = this.$route.params.username
   
-        this.axios.get(`/user/bios/${this.username}`)
+        this.axios.get(`https://bio.torre.co/api/bios/${this.username}`)
           .then( (response) => {
               this.person = response.data.person
               this.skills = response.data.strengths
@@ -23,7 +23,7 @@ export default {
     },
     methods:{
         getPeopleWithSimilarSkills(skill){
-            this.axios.post(`/jobs/people/_search?size=10`, {and: [{'skill/role': {text: skill}} ]})
+            this.axios.post(`https://search.torre.co/people/_search?size=10`, {and: [{'skill/role': {text: skill}} ]})
             .then( (response) => {
               this.person = response.data.person
               this.skills = response.data.strengths
