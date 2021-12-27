@@ -14,9 +14,9 @@ module.exports = {
                 }
             },
             '/user': {
-                target: 'http://torre.bio/api',
-                // ws: true,
-                changeOrigin: false,
+                target: 'https://bio.torre.co/api',
+                ws: true,
+                changeOrigin: true,
                 pathRewrite: {
                     '^/user': ''
                 }

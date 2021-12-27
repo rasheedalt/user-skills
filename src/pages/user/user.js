@@ -2,19 +2,31 @@ export default {
     data(){
         return {
             username: '',
-            personal: [],
-            skills: []
+            person: {
+                name: ''
+            },
+            skills: [],
+            relatedUsers: []
         };
     },
     created(){
         this.username = this.$route.params.username
-        console.log(this.username)
   
         this.axios.get(`/user/bios/${this.username}`)
           .then( (response) => {
               console.log(response.data)
-              this.personal = response.data.personal
-              this.skills = response.data.skills
+              this.person = response.data.person
+              this.skills = response.data.strengths
           });
+    },
+    methods:{
+        getPeopleWithSimilarSkills(skill){
+            this.axios.post(`/jobs/people/_search?size=10`, {and: [{'skill/role': {text: skill}} ]})
+            .then( (response) => {
+              console.log(response.data)
+              this.person = response.data.person
+              this.skills = response.data.strengths
+          });
+        }
     }
   }
